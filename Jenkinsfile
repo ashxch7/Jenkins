@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Upload to AWS') {
       steps {
-        withAWS(region: 'us-east-1', credentials: 'Jenkins') {
+        withAWS(region: 'us-east-1', credentials: 'Jenkins-cred') {
           sh 'echo "Uploading content with AWS creds"'
           s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file: '.', bucket: 'clcm3506-finalexam-ash')
         }
